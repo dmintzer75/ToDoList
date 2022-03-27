@@ -7,6 +7,7 @@
 
 import UIKit
 import RealmSwift
+import Hue
 
 class CategoryViewController: SwipeTableViewController {
     
@@ -20,6 +21,7 @@ class CategoryViewController: SwipeTableViewController {
         loadCategories()
         
         tableView.rowHeight = 80.0
+        tableView.separatorStyle = .none
     }
     
     @IBAction func addButtonPressed(_ sender: UIBarButtonItem) {
@@ -31,7 +33,6 @@ class CategoryViewController: SwipeTableViewController {
             // what will happen when use clicks the add category on the UI Alert
             let newCategory = Category()
             newCategory.name = textField.text!
-            
             self.save(category: newCategory)
         }
         alert.addTextField { alertTextField in
@@ -56,7 +57,6 @@ class CategoryViewController: SwipeTableViewController {
 }
 
 
-
 //MARK: - TableView Datasource & Delegate Methods
 extension CategoryViewController {
     
@@ -68,6 +68,8 @@ extension CategoryViewController {
         
         let cell = super.tableView(tableView, cellForRowAt: indexPath)
         cell.textLabel?.text = categories?[indexPath.row].name ?? "No Categories Added Yet"
+    
+        cell.backgroundColor = UIColor(hex: "#524A4E").alpha(CGFloat(indexPath.row + 1) / CGFloat(categories?.count ?? 1))
         
         return cell
     }
@@ -111,36 +113,14 @@ extension CategoryViewController {
     
    
 }
+//MARK: - Random Color Extension
+extension CategoryViewController {
+    func generateRandomColor() -> UIColor {
+        let redValue = CGFloat(drand48())
+        let greenValue = CGFloat(drand48())
+        let blueValue = CGFloat(drand48())
+        let randomColor = UIColor(red: redValue, green: greenValue, blue: blueValue, alpha: 1.0)
+        return randomColor
+        }
+}
 
-//MARK: - Swipe Controls
-//extension CategoryViewController: SwipeTableViewCellDelegate {
-//
-//    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> [SwipeAction]? {
-//        guard orientation == .right else { return nil }
-//
-//        let deleteAction = SwipeAction(style: .destructive, title: "Delete") { action, indexPath in
-//            // handle action by updating model with deletion
-//            if let categoryForDeletion = self.categories?[indexPath.row] {
-//                do {
-//                    try self.realm.write({
-//                        self.realm.delete(categoryForDeletion)
-//                    })
-//                } catch {
-//                    print("Error deleting category, \(error)")
-//                }
-//            }
-//        }
-//
-//        // customize the action appearance
-//        deleteAction.image = UIImage(named: "delete-icon")
-//
-//        return [deleteAction]
-//    }
-//
-//    func tableView(_ tableView: UITableView, editActionsOptionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> SwipeOptions {
-//        var options = SwipeOptions()
-//        options.expansionStyle = .destructive
-//        options.transitionStyle = .border
-//        return options
-//    }
-//}

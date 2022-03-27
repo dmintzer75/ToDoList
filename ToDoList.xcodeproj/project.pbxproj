@@ -13,6 +13,7 @@
 		7966C09D27DBA3F800DB2AF6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7966C09B27DBA3F800DB2AF6 /* Main.storyboard */; };
 		7966C09F27DBA3FA00DB2AF6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7966C09E27DBA3FA00DB2AF6 /* Assets.xcassets */; };
 		7966C0A227DBA3FA00DB2AF6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7966C0A027DBA3FA00DB2AF6 /* LaunchScreen.storyboard */; };
+		7971B29527F0DCFD0052F785 /* Hue in Frameworks */ = {isa = PBXBuildFile; productRef = 7971B29427F0DCFD0052F785 /* Hue */; };
 		79A1BCC027E9257500BB27AC /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79A1BCBF27E9257500BB27AC /* CategoryViewController.swift */; };
 		79BF5CC927EF9C1400B2345F /* SwipeCellKit in Frameworks */ = {isa = PBXBuildFile; productRef = 79BF5CC827EF9C1400B2345F /* SwipeCellKit */; };
 		79BF5CCD27EFE16D00B2345F /* SwipeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79BF5CCC27EFE16D00B2345F /* SwipeTableViewController.swift */; };
@@ -43,6 +44,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				79C83F6D27EBAA8500590EEE /* RealmSwift in Frameworks */,
+				7971B29527F0DCFD0052F785 /* Hue in Frameworks */,
 				79BF5CC927EF9C1400B2345F /* SwipeCellKit in Frameworks */,
 				79C83F6B27EBAA8500590EEE /* Realm in Frameworks */,
 			);
@@ -137,6 +139,7 @@
 				79C83F6A27EBAA8500590EEE /* Realm */,
 				79C83F6C27EBAA8500590EEE /* RealmSwift */,
 				79BF5CC827EF9C1400B2345F /* SwipeCellKit */,
+				7971B29427F0DCFD0052F785 /* Hue */,
 			);
 			productName = ToDoList;
 			productReference = 7966C09227DBA3F800DB2AF6 /* ToDoList.app */;
@@ -169,6 +172,7 @@
 			packageReferences = (
 				79C83F6927EBAA8500590EEE /* XCRemoteSwiftPackageReference "realm-swift" */,
 				79BF5CC727EF9C1400B2345F /* XCRemoteSwiftPackageReference "SwipeCellKit" */,
+				7971B29327F0DCFD0052F785 /* XCRemoteSwiftPackageReference "Hue" */,
 			);
 			productRefGroup = 7966C09327DBA3F800DB2AF6 /* Products */;
 			projectDirPath = "";
@@ -425,6 +429,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		7971B29327F0DCFD0052F785 /* XCRemoteSwiftPackageReference "Hue" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/zenangst/Hue";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
 		79BF5CC727EF9C1400B2345F /* XCRemoteSwiftPackageReference "SwipeCellKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SwipeCellKit/SwipeCellKit";
@@ -444,6 +456,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		7971B29427F0DCFD0052F785 /* Hue */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7971B29327F0DCFD0052F785 /* XCRemoteSwiftPackageReference "Hue" */;
+			productName = Hue;
+		};
 		79BF5CC827EF9C1400B2345F /* SwipeCellKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 79BF5CC727EF9C1400B2345F /* XCRemoteSwiftPackageReference "SwipeCellKit" */;

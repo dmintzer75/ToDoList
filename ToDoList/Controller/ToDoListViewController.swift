@@ -24,6 +24,7 @@ class ToDoListViewController: SwipeTableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.rowHeight = 80.0
+        tableView.separatorStyle = .none
     }
     
     @IBAction func addButtonPressed(_ sender: Any) {
@@ -73,6 +74,8 @@ class ToDoListViewController: SwipeTableViewController {
     func loadItems() {
        toDoItems = selectedCategory?.items.sorted(byKeyPath: "title", ascending: true)
    }
+    
+    
 }
 
 //MARK: - TableView Extensions
@@ -86,6 +89,7 @@ extension ToDoListViewController {
         if let item = toDoItems?[indexPath.row] {
             cell.textLabel?.text = item.title
             
+            cell.backgroundColor = UIColor(hex: "#FD4340").alpha(CGFloat(indexPath.row + 1) / CGFloat(toDoItems?.count ?? 1))
             //Ternary Operator
             // value = condition ? valueIfTrue : valueIfFalse
             cell.accessoryType = (item.done == true) ? .checkmark : .none
@@ -136,5 +140,6 @@ extension ToDoListViewController: UISearchBarDelegate {
             }
         }
     }
+    
 }
 
